@@ -1,0 +1,16 @@
+{
+    "Type": "code",
+    "ModID": "issue5364debugpatch",
+    "Name": "Issue5364DebugPatch",
+    "Authors": [
+        "NerArth"
+    ],
+    "Description": "Attempt at debugging and fixing Issue5364",
+    "Version": "1.0.0",
+    "Dependencies": {
+        "game": ""
+    },
+    "Side": "Client",
+    "RequiredOnClient": true,
+    "RequiredOnServer": false
+}
