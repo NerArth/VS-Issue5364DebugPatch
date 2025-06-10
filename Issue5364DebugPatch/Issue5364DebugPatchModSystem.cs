@@ -12,7 +12,6 @@ namespace Issue5364DebugPatch
 {
     public class Issue5364DebugPatchModSystem : ModSystem
     {
-
         // Called on server and client
         // Useful for registering block/entity classes on both sides
         public override void Start(ICoreAPI api)
@@ -28,7 +27,7 @@ namespace Issue5364DebugPatch
         public override void StartClientSide(ICoreClientAPI api)
         {
             TimeManager.api = api;
-            api.Logger.Notification("ISSUE5364 client side");
+            Mod.Logger.Event("ISSUE5364 client side");
             Harmony harmony = new Harmony("issue5364debugpatch");
             harmony.PatchAll();
 
@@ -59,7 +58,7 @@ namespace Issue5364DebugPatch
             bool recentlyExecuted = TimeManager.GetExecutionFlag();
             if (recentlyExecuted)
             {
-                Debug.Print("ISSUE5364 WorldMapManager.OnMapLayerDataReceivedClient recently executed, skipping this call");
+                //Debug.Print("ISSUE5364 WorldMapManager.OnMapLayerDataReceivedClient recently executed, skipping this call");
                 return false; // Skip the original method if it has already been executed
             }
             return true;
@@ -86,26 +85,26 @@ namespace Issue5364DebugPatch
         public static void ResetExecutionFlag()
         {
             recentlyExecuted = false;
-            if (api is not null)
-            {
-                api?.Logger.Debug("ISSUE5364 recentlyExecuted flag reset");
-            }
-            else
-            {
-                Debug.Print("ISSUE5364 recentlyExecuted flag reset");
-            }
+            //if (api is not null)
+            //{
+            //    api?.Logger.Debug("ISSUE5364 recentlyExecuted flag reset");
+            //}
+            //else
+            //{
+            //    Debug.Print("ISSUE5364 recentlyExecuted flag reset");
+            //}
         }
         public static void SetExecutionFlag()
         {
             recentlyExecuted = true;
-            if (api is not null)
-            {
-                api?.Logger.Debug("ISSUE5364 recentlyExecuted flag set");
-            }
-            else
-            {
-                Debug.Print("ISSUE5364 recentlyExecuted flag set");
-            }
+            //if (api is not null)
+            //{
+            //    api?.Logger.Debug("ISSUE5364 recentlyExecuted flag set");
+            //}
+            //else
+            //{
+            //    Debug.Print("ISSUE5364 recentlyExecuted flag set");
+            //}
         }
 
         public static bool GetExecutionFlag()
