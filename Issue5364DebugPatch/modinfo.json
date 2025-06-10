@@ -5,7 +5,7 @@
     "Authors": [
         "NerArth"
     ],
-    "Description": "Attempt at debugging and fixing Issue5364",
+    "Description": "Attempt at debugging and working around Issue5364",
     "Version": "1.0.0",
     "Dependencies": {
         "game": ""
