@@ -37,6 +37,7 @@ namespace Issue5364DebugPatch
         public override void Dispose()
         {
             TimeManager.ResetExecutionFlag();
+            TimeManager.api = null;
         }
 
         private void EverySecond(float dt)
